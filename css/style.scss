@@ -89,6 +89,10 @@ a:hover {
   opacity: 0.7;
 }
 
+.touch a:hover {
+  opacity: 1;
+}
+
 a img {
   transition: opacity 0.3s;
 }

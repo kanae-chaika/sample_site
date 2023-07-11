@@ -1,6 +1,6 @@
 /*----------------------------------------------------------
-// * information  :: element.css
-// * tsujino created :: 2023.06 improved
+// * information :: element.css
+// * tsujino created :: 2023.07 improved
 // ----------------------------------------------------------*/
 
 *,
@@ -56,10 +56,6 @@ a:hover {
 
 a img {
   border: none;
-}
-
-.touch a:hover {
-  opacity: 1;
 }
 
 :focus {
@@ -152,12 +148,6 @@ select::-ms-expand {
 
 optgroup {
   font-style: normal;
-}
-
-.clearfix:after {
-  content: '';
-  clear: both;
-  display: block;
 }
 
 @media (max-width: 743px) {

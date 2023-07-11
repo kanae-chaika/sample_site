@@ -78,3 +78,10 @@ $(document).ready(function () {
     infinite: true,
   });
 });
+
+// タッチデバイス
+if ('ontouchstart' in window) {
+  $(function () {
+    $('html').addClass('touch');
+  });
+}
