@@ -2,15 +2,16 @@
 /*--------------- base -------------- */
 body {
   color: #333;
-  font-size: 100%;
   line-height: 2;
   letter-spacing: 0.2em;
+  font-size: 100%;
+  font-family: "Noto Sans JP", sans-serif;
   word-wrap: break-word;
   overflow-wrap: break-word;
   background: #fff;
   -webkit-text-size-adjust: 100%;
-  animation: opacity 0.7s both;
   font-feature-settings: "palt";
+  animation: opacity 0.7s both;
 }
 
 a {
@@ -30,7 +31,7 @@ a img {
   margin: 0 auto;
   padding-left: 1rem;
   padding-right: 1rem;
-  box-sizing: border-box;
+  box-sizing: content-box;
 }
 
 /*--------------- anime -------------- */
@@ -53,9 +54,6 @@ a img {
   }
 }
 /*--------------- layout -------------- */
-body {
-  font-family: "Noto Sans JP", sans-serif;
-}
 body.nav_op {
   /*　この部分　スマホ　ハンバーガーメニューに必要　*/
   overflow: hidden;
@@ -75,7 +73,7 @@ body.nav_op {
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 3;
+  z-index: 2;
   animation: loading 1s 1.25s both;
 }
 .loading img {
