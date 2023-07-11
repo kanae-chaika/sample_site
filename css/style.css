@@ -1,0 +1,296 @@
+@charset "UTF-8";
+/*--------------- base -------------- */
+body {
+  color: #333;
+  font-size: 100%;
+  line-height: 2;
+  letter-spacing: 0.2em;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  background: #fff;
+  -webkit-text-size-adjust: 100%;
+  animation: opacity 0.7s both;
+  font-feature-settings: "palt";
+}
+
+a {
+  transition: opacity 0.3s, color 0.3s, border 0.3s, background 0.3s;
+}
+
+a:hover {
+  opacity: 0.7;
+}
+
+a img {
+  transition: opacity 0.3s;
+}
+
+.base_wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  box-sizing: border-box;
+}
+
+/*--------------- anime -------------- */
+@keyframes opacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes loading {
+  0% {
+    opacity: 1;
+    visibility: visible;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+/*--------------- layout -------------- */
+body {
+  font-family: "Noto Sans JP", sans-serif;
+}
+body.nav_op {
+  /*　この部分　スマホ　ハンバーガーメニューに必要　*/
+  overflow: hidden;
+  width: 100%;
+  position: fixed;
+}
+
+@media (min-width: 744px) {
+  body {
+    min-width: 1100px;
+  }
+}
+.loading {
+  position: fixed;
+  inset: 0;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3;
+  animation: loading 1s 1.25s both;
+}
+.loading img {
+  width: 200px;
+  animation: opacity 0.5s 0.25s both;
+}
+@media (max-width: 743px) {
+  .loading img {
+    width: 120px;
+  }
+}
+
+/*　PCメニューの例　*/
+.header_in {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+}
+
+.logo {
+  width: 150px;
+  margin-right: auto;
+}
+@media (max-width: 743px) {
+  .logo {
+    width: 100px;
+  }
+  .header .logo {
+    position: relative;
+    z-index: 2;
+  }
+}
+
+.g_nav {
+  display: flex;
+  margin: 0 -2rem;
+}
+.g_nav li {
+  margin: 0 2rem;
+}
+.g_nav li a {
+  color: #d35de6;
+}
+
+/*　ここまでPCメニューの例　*/
+/*　ここからスマホ　ハンバーガーメニュー　*/
+.g_nav_toggle {
+  display: none;
+}
+
+@media (max-width: 743px) {
+  .g_nav_toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    right: 0;
+    margin: 24px;
+    padding: 3px 0;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    z-index: 2;
+  }
+  .g_nav_toggle .bar {
+    height: 2px;
+    background: #d35de6;
+    transition: all 0.2s ease-out;
+  }
+  .nav_op .g_nav_toggle .bar {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    width: 100%;
+    margin: 0 auto;
+  }
+  .nav_op .g_nav_toggle .bar:first-child {
+    transform: translateY(-50%) rotate(45deg);
+  }
+  .nav_op .g_nav_toggle .bar:nth-child(2) {
+    transform: scale(0);
+  }
+  .nav_op .g_nav_toggle .bar:nth-child(3) {
+    transform: translateY(-50%) rotate(-45deg);
+  }
+  .g_nav_wrap {
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 80px 2rem 20px;
+    width: 100%;
+    height: 100vh;
+    transform: translateY(-100%);
+    background: rgba(255, 255, 255, 0.9);
+    overflow: auto;
+    transition: all 0.2s ease-out;
+    z-index: 1;
+  }
+  .nav_op .g_nav_wrap {
+    transform: none;
+  }
+  .g_nav {
+    font-size: inherit;
+    display: block;
+    position: static !important;
+    padding: 0 !important;
+    margin-top: 2rem;
+    background: transparent;
+    border-top: dotted 1px #d35de6;
+  }
+  .g_nav li {
+    margin: 0;
+    padding: 1rem 0;
+    text-align: center;
+    border-bottom: dotted 1px #d35de6;
+  }
+  .g_nav li a:after {
+    display: none;
+  }
+  .g_nav li a img {
+    height: 40px !important;
+  }
+  .g_nav li a .name_wrap {
+    display: inline-block !important;
+  }
+}
+/*　ここまでスマホ　ハンバーガーメニュー　*/
+main {
+  overflow: hidden;
+}
+
+/*　トップへ戻るの例　*/
+.to_top {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  opacity: 0;
+  transition: all 0.3s;
+}
+.to_top a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  color: #fff;
+  background: #d35de6;
+  border-radius: 50%;
+}
+.to_top a:before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f077";
+  letter-spacing: 0;
+}
+.scrolled .to_top, .scroll_end .to_top {
+  opacity: 1;
+}
+
+.footer {
+  overflow: hidden;
+  padding: 1.5rem 0;
+  border-top: solid 1px #eee;
+}
+.footer .logo {
+  margin: 0 0 1.5rem;
+  width: 100px;
+}
+.footer_nav {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -2rem 2rem;
+}
+.footer_nav li {
+  padding: 0 2rem;
+}
+.footer_nav li a {
+  color: inherit;
+}
+@media (max-width: 743px) {
+  .footer_nav li {
+    width: 50%;
+  }
+}
+.footer .copy {
+  text-align: center;
+}
+
+/*--------------- main -------------- //*/
+.slide_section {
+  margin: 0 0 2rem;
+  overflow: hidden;
+}
+.slide_section .slide {
+  max-width: 100%;
+}
+.slide_section .slide img {
+  max-height: 450px;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+@media (max-width: 743px) {
+  .slide_section .slide img {
+    height: 200px;
+  }
+}
+
+.main_section {
+  padding: 3rem 0;
+}
+
+.xx_section {
+  height: 50vh;
+  background: #fbeffd;
+}/*# sourceMappingURL=style.css.map */

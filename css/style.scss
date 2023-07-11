@@ -1,0 +1,367 @@
+// --------------- setting -------------- //
+
+$base_color: #d35de6;
+
+//システムフォントを使う場合
+$font_base: '游ゴシック', YuGothic, 'ヒラギノ角ゴ ProN W3',
+  'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, Verdana, sans-serif;
+
+// --------------- mixin -------------- //
+
+@mixin nav_ease {
+  transition: all 0.2s ease-out;
+}
+
+@mixin a_ease {
+  transition: opacity 0.3s, color 0.3s, border 0.3s, background 0.3s;
+}
+
+@mixin asm {
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+}
+
+//--------------- responsive -------------- //
+$shrink_point: 1100;
+
+$tab_min_width: 744;
+$tab_max_width: 1180;
+$pc_point: 1440;
+
+$breakpoints: (
+  'sp_small': '(max-width: 375px)',
+  'sp': '(max-width: ' +
+    (
+      $tab_min_width - 1,
+    ) + 'px)',
+  'pc_tab': '(min-width: ' + $tab_min_width + 'px)',
+  'pc': '(min-width: ' +
+    (
+      $tab_max_width + 1,
+    ) + 'px)',
+  'sp_tab': '(max-width: ' + $tab_max_width + 'px)',
+  'pc_large': '(min-width: ' + $pc_point + 'px)',
+  'pc_small': '(max-width: ' +
+    (
+      $pc_point - 1,
+    ) + 'px)',
+  'tab': '(min-width: ' + $tab_min_width + 'px) and (max-width: ' +
+    $tab_max_width + 'px)',
+  'portrait': '(orientation: portrait) and (min-width: ' + $tab_min_width +
+    'px)',
+) !default;
+
+@mixin mq($breakpoint: sp) {
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}
+
+//▼使い方
+//@include mq() {
+//  color: hoge;
+//}
+//@include mq(pc_small) 1439以下
+//@include mq(sp_tab) 1180以下
+//@include mq() 743以下
+
+/*--------------- base -------------- */
+
+body {
+  color: #333;
+  font-size: 100%;
+  line-height: 2;
+  letter-spacing: 0.2em;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  background: #fff;
+  -webkit-text-size-adjust: 100%;
+  animation: opacity 0.7s both;
+  font-feature-settings: 'palt';
+}
+
+a {
+  @include a_ease;
+}
+
+a:hover {
+  opacity: 0.7;
+}
+
+a img {
+  transition: opacity 0.3s;
+}
+
+.base_wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  box-sizing: content-box;
+}
+
+/*--------------- anime -------------- */
+
+@keyframes opacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes loading {
+  0% {
+    opacity: 1;
+    visibility: visible;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+/*--------------- layout -------------- */
+
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+
+  &.nav_op {
+    /*　この部分　スマホ　ハンバーガーメニューに必要　*/
+    overflow: hidden;
+    width: 100%;
+    position: fixed;
+  }
+}
+
+@media (min-width: #{$tab_min_width}px) {
+  body {
+    min-width: #{$shrink_point}px;
+  }
+}
+
+.loading {
+  position: fixed;
+  inset: 0;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  animation: loading 1s 1.25s both;
+  img {
+    width: 200px;
+    animation: opacity 0.5s 0.25s both;
+  }
+  @include mq() {
+    img {
+      width: 120px;
+    }
+  }
+}
+
+/*　PCメニューの例　*/
+.header_in {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+}
+.logo {
+  width: 150px;
+  margin-right: auto;
+  @include mq() {
+    width: 100px;
+    .header & {
+      position: relative;
+      z-index: 2;
+    }
+  }
+}
+.g_nav {
+  display: flex;
+  margin: 0 -2rem;
+  li {
+    margin: 0 2rem;
+    a {
+      color: $base_color;
+    }
+  }
+}
+/*　ここまでPCメニューの例　*/
+
+/*　ここからスマホ　ハンバーガーメニュー　*/
+.g_nav_toggle {
+  display: none;
+}
+
+@include mq() {
+  .g_nav_toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    right: 0;
+    margin: 24px;
+    padding: 3px 0;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    z-index: 2;
+    //		background: rgba(255, 255, 255, 0.8);
+    .bar {
+      height: 2px;
+      background: $base_color;
+      @include nav_ease;
+      .nav_op & {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        width: 100%;
+        margin: 0 auto;
+        &:first-child {
+          transform: translateY(-50%) rotate(45deg);
+        }
+        &:nth-child(2) {
+          transform: scale(0);
+        }
+        &:nth-child(3) {
+          transform: translateY(-50%) rotate(-45deg);
+        }
+      }
+    }
+  }
+  .g_nav_wrap {
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 80px 2rem 20px;
+    width: 100%;
+    height: 100vh;
+    transform: translateY(-100%);
+    background: rgba(255, 255, 255, 0.9);
+    overflow: auto;
+    @include nav_ease;
+    z-index: 1;
+    .nav_op & {
+      transform: none;
+    }
+  }
+  .g_nav {
+    font-size: inherit;
+    display: block;
+    position: static !important;
+    padding: 0 !important;
+    margin-top: 2rem;
+    background: transparent;
+    border-top: dotted 1px $base_color;
+    li {
+      margin: 0;
+      padding: 1rem 0;
+      text-align: center;
+      border-bottom: dotted 1px $base_color;
+      a {
+        &:after {
+          display: none;
+        }
+        img {
+          height: 40px !important;
+        }
+        .name_wrap {
+          display: inline-block !important;
+        }
+      }
+    }
+  }
+}
+/*　ここまでスマホ　ハンバーガーメニュー　*/
+
+main {
+  overflow: hidden;
+}
+
+/*　トップへ戻るの例　*/
+.to_top {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  opacity: 0;
+  transition: all 0.3s;
+  a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    color: #fff;
+    background: $base_color;
+    border-radius: 50%;
+    &:before {
+      @include asm;
+      content: '\f077';
+      letter-spacing: 0;
+    }
+  }
+  .scrolled &,
+  .scroll_end & {
+    opacity: 1;
+  }
+}
+
+.footer {
+  overflow: hidden;
+  padding: 1.5rem 0;
+  border-top: solid 1px #eee;
+  .logo {
+    margin: 0 0 1.5rem;
+    width: 100px;
+  }
+  &_nav {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -2rem 2rem;
+    li {
+      padding: 0 2rem;
+      a {
+        color: inherit;
+      }
+    }
+    @include mq() {
+      li {
+        width: 50%;
+      }
+    }
+  }
+  .copy {
+    text-align: center;
+  }
+}
+
+/*--------------- main -------------- //*/
+
+.slide_section {
+  margin: 0 0 2rem;
+  overflow: hidden;
+  .slide {
+    max-width: 100%;
+    img {
+      max-height: 450px;
+      width: 100%;
+      object-fit: cover;
+      @include mq() {
+        height: 200px;
+      }
+    }
+  }
+}
+
+.main_section {
+  padding: 3rem 0;
+}
+
+.xx_section {
+  height: 50vh;
+  background: mix($base_color, #fff, 10%);
+}

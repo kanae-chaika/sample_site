@@ -1,0 +1,178 @@
+/*----------------------------------------------------------
+// * information  :: element.css
+// * tsujino created :: 2023.06 improved
+// ----------------------------------------------------------*/
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+i,
+cite,
+em,
+var,
+address,
+dfn {
+  font-style: normal;
+}
+
+figure {
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: bottom;
+}
+
+table {
+  margin: 0;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+a {
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+a img {
+  border: none;
+}
+
+.touch a:hover {
+  opacity: 1;
+}
+
+:focus {
+  outline: none;
+  text-decoration: none;
+}
+
+input[type='submit']::-moz-focus-inner,
+input[type='reset']::-moz-focus-inner,
+input[type='button']::-moz-focus-inner {
+  border: 0px;
+}
+
+input[type='submit']:hover {
+  cursor: pointer;
+}
+
+input[type='button'],
+input[type='text'],
+input[type='submit'],
+input[type='search'] {
+  -webkit-appearance: none;
+  border-radius: 0;
+}
+input,
+button,
+textarea,
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  outline: none;
+  max-width: none;
+  font-family: inherit;
+}
+
+button {
+  cursor: pointer;
+  background: none;
+}
+
+/* iOSでのデフォルトスタイルをリセット */
+input[type='submit'],
+input[type='text'],
+input[type='button'],
+input[type='search'],
+button {
+  border-radius: 0;
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  appearance: button;
+  border: none;
+  box-sizing: border-box;
+}
+input[type='submit']::-webkit-search-decoration,
+input[type='button']::-webkit-search-decoration {
+  display: none;
+}
+input[type='submit']::focus,
+input[type='button']::focus {
+  outline-offset: -2px;
+}
+input:-webkit-autofill {
+  box-shadow: 0 0 0 1000px white inset;
+}
+
+input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+select {
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+}
+select::-ms-expand {
+  display: none;
+}
+
+optgroup {
+  font-style: normal;
+}
+
+.clearfix:after {
+  content: '';
+  clear: both;
+  display: block;
+}
+
+@media (max-width: 743px) {
+  select,
+  input,
+  textarea {
+    font-size: 16px;
+  }
+  input::-webkit-input-placeholder {
+    font-size: 0.75em;
+  }
+  input:-ms-input-placeholder {
+    font-size: 0.75em;
+  }
+  input:-moz-placeholder {
+    font-size: 0.75em;
+  }
+}
