@@ -14,6 +14,11 @@
   padding: 0;
 }
 
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 ul,
 ol {
   list-style: none;
@@ -83,7 +88,8 @@ input[type='search'] {
 input,
 button,
 textarea,
-select {
+select,
+optgroup {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -93,6 +99,7 @@ select {
   outline: none;
   max-width: none;
   font-family: inherit;
+  line-height: inherit;
 }
 
 button {
@@ -153,7 +160,8 @@ optgroup {
 @media (max-width: 743px) {
   select,
   input,
-  textarea {
+  textarea,
+  optgroup {
     font-size: 16px;
   }
   input::-webkit-input-placeholder {
