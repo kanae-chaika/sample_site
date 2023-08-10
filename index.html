@@ -118,6 +118,14 @@
 
   <script type="text/javascript" src="js/common.js"></script>
 
+  <script type="text/javascript">
+    function gate() {
+      var UserInput = prompt("パスワードを入力して下さい:", "");
+      location.href = UserInput + ".html";
+    }
+  </script>
+  <input type="button" value="パスワードを入力" onclick="gate();">
+
 </body>
 
 </html>
