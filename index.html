@@ -8,6 +8,9 @@
   <meta name="description" content="" />
   <meta name="keywords" content="" />
 
+  <!--  検索からブロックする場合  -->
+  <meta name="robots" content="noindex,nofollow,noarchive">
+
   <!--  fontawesome を使う場合  -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous" />
 
@@ -29,11 +32,9 @@
   <header class="header" id="top">
     <div class="base_wrap">
       <div class="header_in">
-        <div class="logo">
-          <a href="#">
-            <img class="logo_img" src="img/logo.png" alt="ブランド名" />
-          </a>
-        </div>
+        <a href="#" class="logo">
+          <img class="logo_img" src="img/logo.svg" alt="ブランド名" />
+        </a>
 
         <nav class="g_nav_wrap">
           <ul class="g_nav">
@@ -90,7 +91,7 @@
     <div class="base_wrap">
       <div class="logo">
         <a href="#">
-          <img class="logo_img" src="img/logo.png" alt="企業名" />
+          <img class="logo_img" src="img/logo.svg" alt="企業名" />
         </a>
       </div>
       <nav class="footer_nav_wrap">
@@ -106,7 +107,7 @@
   </footer>
 
   <div class="loading">
-    <img class="logo_img" src="img/logo.png" alt="ブランド名" />
+    <img class="logo_img" src="img/logo.svg" alt="ブランド名" />
   </div>
 
   <!--  jquery本体  -->
@@ -118,13 +119,7 @@
 
   <script type="text/javascript" src="js/common.js"></script>
 
-  <script type="text/javascript">
-    function gate() {
-      var UserInput = prompt("パスワードを入力して下さい:", "");
-      location.href = UserInput + ".html";
-    }
-  </script>
-  <input type="button" value="パスワードを入力" onclick="gate();">
+
 
 </body>
 

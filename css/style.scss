@@ -168,10 +168,11 @@ body {
 .header_in {
   display: flex;
   align-items: center;
-  padding: 1rem;
+  padding: 0.75rem 0;
 }
 .logo {
-  width: 150px;
+  display: block;
+  width: 110px;
   margin-right: auto;
   @include mq() {
     width: 100px;
@@ -319,7 +320,7 @@ main {
   border-top: solid 1px #eee;
   .logo {
     margin: 0 0 1.5rem;
-    width: 100px;
+    width: 90px;
   }
   &_nav {
     display: flex;

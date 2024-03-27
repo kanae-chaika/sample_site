@@ -22,6 +22,10 @@ a:hover {
   opacity: 0.7;
 }
 
+.touch a:hover {
+  opacity: 1;
+}
+
 a img {
   transition: opacity 0.3s;
 }
@@ -90,11 +94,12 @@ body.nav_op {
 .header_in {
   display: flex;
   align-items: center;
-  padding: 1rem;
+  padding: 0.75rem 0;
 }
 
 .logo {
-  width: 150px;
+  display: block;
+  width: 110px;
   margin-right: auto;
 }
 @media (max-width: 743px) {
@@ -242,7 +247,7 @@ main {
 }
 .footer .logo {
   margin: 0 0 1.5rem;
-  width: 100px;
+  width: 90px;
 }
 .footer_nav {
   display: flex;
