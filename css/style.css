@@ -278,14 +278,14 @@ main {
   max-width: 100%;
 }
 .slide_section .slide img {
-  max-height: 450px;
+  height: 450px;
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
 }
 @media (max-width: 743px) {
   .slide_section .slide img {
-    height: 200px;
+    height: 300px;
   }
 }
 

@@ -351,11 +351,11 @@ main {
   .slide {
     max-width: 100%;
     img {
-      max-height: 450px;
+      height: 450px;
       width: 100%;
       object-fit: cover;
       @include mq() {
-        height: 200px;
+        height: 300px;
       }
     }
   }
