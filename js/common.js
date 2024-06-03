@@ -3,8 +3,8 @@ $(window).on('load', function () {
   $('body').removeClass('nav_op');
 });
 
-var state = false;
-var scrollpos;
+let state = false;
+let scrollpos;
 $('.g_nav_toggle').on('click', function () {
   //    $('body').toggleClass('nav_op');
   // $(this).toggleClass('open');
@@ -30,19 +30,19 @@ $('.g_nav a[href*="#"], .header .logo a').on('click', function () {
 $(function () {
   // smooth scroller
   $('a[href*="#"]').on('click', function () {
-    var hash = this.hash;
+    const hash = this.hash;
     if (!hash || hash == '#') {
       return false;
     }
-    var offset = $(hash).offset();
+    const offset = $(hash).offset();
     if (!offset) {
       return true;
     }
 
     //メニュー除く
-    var menu_height = 0;
-    //        if ($('.job_menu.fixed').length){
-    //            var menu_height = $('.job_menu.fixed').outerHeight();
+    let menu_height = 0;
+    //        if ($('.header.fixed').length){
+    //            menu_height = $('.header.fixed').outerHeight();
     //        }
 
     $('body,html').animate({ scrollTop: offset.top - menu_height }, 800);
@@ -52,8 +52,8 @@ $(function () {
 
 //* スクロール
 $(function () {
-  var _height = window.innerHeight;
-  var b_height = $('body').height();
+  const _height = window.innerHeight;
+  const b_height = $('body').height();
 
   $(window).on('scroll', function () {
     if ($(window).scrollTop() < _height * 0.5) {
@@ -70,7 +70,7 @@ $(function () {
 });
 
 //slide
-$(document).ready(function () {
+$(function () {
   $('.slide').slick({
     dots: true,
     autoplay: true,
