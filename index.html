@@ -17,7 +17,7 @@
   <!--  Noto Sans JP を使う場合  -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@200;500;700&display=swap" rel="stylesheet">
 
   <!--  スライド を使う場合  -->
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
@@ -37,11 +37,17 @@
         </a>
 
         <nav class="g_nav_wrap">
+          <div class="sp_logo sp">
+            <a href="index.html" class="logo">
+              <img class="logo_img" src="img/logo.svg" alt="ブランド名" />
+            </a>
+          </div>
           <ul class="g_nav">
-            <li><a href="#">サービス</a></li>
-            <li><a href="#">会社概要</a></li>
-            <li><a href="#">よくある質問</a></li>
-            <li><a href="#">アクセス</a></li>
+            <li><a href="#about">私たちについて</a></li>
+            <li><a href="#service">サービス</a></li>
+            <li><a href="#company">会社概要</a></li>
+            <li><a href="#qa">よくある質問</a></li>
+            <li><a href="#access">アクセス</a></li>
           </ul>
         </nav>
       </div>
@@ -62,23 +68,58 @@
         <div><img src="img/slide3.jpg" alt="スライド3"></div>
         <div><img src="img/slide4.jpg" alt="スライド3"></div>
       </div>
+      <div class="base_wrap">
+        <h1 class="catch">Love the life you live. <br>
+          Live the life you love.</h1>
+      </div>
     </section>
 
-    <section class="lead_section main_section">
+    <section id="about" class="about_section index_section">
       <div class="base_wrap">
-        <h1>タイトルが入ります</h1>
+        <h2 class="index_section_title">
+          <span class="en">About</span>
+          <span class="jp">私たちについて</span>
+        </h2>
         <p>ここにコンテンツが入ります。</p>
       </div>
     </section>
 
-    <section class="xx_section main_section">
+    <section id="service" class="service_section index_section bg_color">
       <div class="base_wrap">
+        <h2 class="index_section_title">
+          <span class="en">Service</span>
+          <span class="jp">サービス</span>
+        </h2>
         <p>ここにコンテンツが入ります。</p>
       </div>
     </section>
 
-    <section class="xxx_section main_section">
+    <section id="company" class="company_section index_section">
       <div class="base_wrap">
+        <h2 class="index_section_title">
+          <span class="en">Company</span>
+          <span class="jp">会社概要</span>
+        </h2>
+        <p>ここにコンテンツが入ります。</p>
+      </div>
+    </section>
+
+    <section id="qa" class="qa_section index_section">
+      <div class="base_wrap">
+        <h2 class="index_section_title">
+          <span class="en">Q&A</span>
+          <span class="jp">よくある質問</span>
+        </h2>
+        <p>ここにコンテンツが入ります。</p>
+      </div>
+    </section>
+
+    <section id="access" class="access_section index_section">
+      <div class="base_wrap">
+        <h2 class="index_section_title">
+          <span class="en">Access</span>
+          <span class="jp">アクセス</span>
+        </h2>
         <p>ここにコンテンツが入ります。</p>
       </div>
     </section>

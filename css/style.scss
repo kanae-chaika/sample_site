@@ -65,6 +65,13 @@ $breakpoints: (
 //@include mq(sp_tab) 1180以下
 //@include mq() 743以下
 
+.sp {
+  display: none;
+  @include mq() {
+    display: block;
+  }
+}
+
 /*--------------- base -------------- */
 
 body {
@@ -170,24 +177,31 @@ body {
   align-items: center;
   padding: 0.75rem 0;
 }
+
 .logo {
   display: block;
   width: 110px;
   margin-right: auto;
   @include mq() {
     width: 100px;
-    .header & {
-      position: relative;
-      z-index: 2;
+  }
+}
+.sp_logo {
+  @include mq() {
+    text-align: center;
+    .logo {
+      display: inline-block;
     }
   }
 }
+
 .g_nav {
   display: flex;
   margin: 0 -2rem;
   li {
     margin: 0 2rem;
     a {
+      display: block;
       color: $base_color;
     }
   }
@@ -241,7 +255,7 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    padding: 80px 2rem 20px;
+    padding: 60px 1rem 20px;
     width: 100%;
     height: 100vh;
     transform: translateY(-100%);
@@ -256,9 +270,7 @@ body {
   .g_nav {
     font-size: inherit;
     display: block;
-    position: static !important;
-    padding: 0 !important;
-    margin-top: 2rem;
+    margin: 1rem 0 0;
     background: transparent;
     border-top: dotted 1px $base_color;
     li {
@@ -346,7 +358,7 @@ main {
 /*--------------- main -------------- //*/
 
 .slide_section {
-  margin: 0 0 2rem;
+  position: relative;
   overflow: hidden;
   .slide {
     max-width: 100%;
@@ -359,13 +371,69 @@ main {
       }
     }
   }
+  .catch {
+    position: absolute;
+    margin-top: -30px;
+    top: 50%;
+    left: auto;
+    transform: translate(0, -50%);
+    color: #fff;
+    font-weight: 200;
+    font-size: 2.4rem;
+    line-height: 1.5;
+    text-shadow: 0 0 8px $base_color, 0 0 10px $base_color, 0 0 20px $base_color;
+    @include mq() {
+      top: auto;
+      bottom: 55px;
+      left: 0;
+      right: 0;
+      transform: none;
+      text-align: center;
+      font-size: 6.5vw;
+      text-shadow: 0 0 8px $base_color, 0 0 10px $base_color,
+        0 0 15px $base_color, 0 0 20px $base_color;
+    }
+  }
 }
 
-.main_section {
-  padding: 3rem 0;
-}
+.index_section {
+  padding: 3rem 0 4rem;
+  min-height: 70vh;
+  @include mq() {
+    padding: 2rem 0 3rem;
+  }
+  &.bg_color {
+    background: mix($base_color, #fff, 10%);
+  }
 
-.xx_section {
-  height: 50vh;
-  background: mix($base_color, #fff, 10%);
+  &_title {
+    margin: 0 0 2em;
+    text-align: center;
+    font-size: 1rem;
+    line-height: 1.35;
+    @include mq() {
+      font-size: 0.8rem;
+    }
+    &:after {
+      content: '';
+      display: block;
+      margin: 0.75em auto 0;
+      width: 2em;
+      height: 2px;
+      background: $base_color;
+    }
+    span {
+      display: block;
+    }
+    .en {
+      font-size: 3.2em;
+      font-weight: 200;
+    }
+    .jp {
+      letter-spacing: 0.1em;
+      font-weight: normal;
+      font-size: 0.9em;
+      color: #666;
+    }
+  }
 }
