@@ -129,6 +129,7 @@ body.nav_op {
 .g_nav {
   display: flex;
   margin: 0 -2rem;
+  font-weight: 500;
 }
 .g_nav li {
   margin: 0 2rem;
@@ -271,6 +272,7 @@ main {
   display: flex;
   flex-wrap: wrap;
   margin: 0 -1rem 3rem;
+  font-weight: 500;
 }
 .footer_nav li {
   padding: 0 1rem;

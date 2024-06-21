@@ -199,6 +199,7 @@ body {
 .g_nav {
   display: flex;
   margin: 0 -2rem;
+  font-weight: 500;
   li {
     margin: 0 2rem;
     a {
@@ -342,6 +343,7 @@ main {
     display: flex;
     flex-wrap: wrap;
     margin: 0 -1rem 3rem;
+    font-weight: 500;
     li {
       padding: 0 1rem;
       a {
