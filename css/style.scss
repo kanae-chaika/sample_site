@@ -2,7 +2,7 @@
 
 $base_color: #d35de6;
 $a_color: #5b2c7a;
-$txt_light_color: #666;
+$light_txt_color: #666;
 $border_color: #ccc;
 
 //システムフォントを使う場合
@@ -402,25 +402,44 @@ main {
       margin: 0 0 0.5rem;
     }
   }
+  &_nav_wrap {
+    margin-bottom: 3rem;
+  }
   &_nav {
     display: flex;
     flex-wrap: wrap;
-    margin: 0 -1rem 3rem;
+    margin: 0 -1rem;
     font-weight: 500;
     li {
       padding: 0 1rem;
       a {
         display: block;
-        color: $txt_light_color;
+        color: $light_txt_color;
       }
     }
     @include mq() {
       flex-direction: column;
     }
   }
+  .github {
+    margin: 1em 0;
+    font-size: 0.9em;
+    letter-spacing: 0.1em;
+    color: $light_txt_color;
+    a {
+      display: flex;
+      align-items: center;
+      color: inherit;
+    }
+    .icon_github {
+      flex: 0 0 auto;
+      margin-right: 0.3em;
+      width: 1.2em;
+    }
+  }
   .copy {
     text-align: center;
-    color: $txt_light_color;
+    color: $light_txt_color;
   }
 }
 
@@ -502,7 +521,7 @@ main {
       letter-spacing: 0.1em;
       font-weight: normal;
       font-size: 0.9em;
-      color: $txt_light_color;
+      color: $light_txt_color;
     }
   }
 }
@@ -532,7 +551,7 @@ main {
         margin-bottom: 0.5em;
 
         text-align: center;
-        color: $txt_light_color;
+        color: $light_txt_color;
         font-weight: normal;
         font-size: 1.25em;
         &::after {

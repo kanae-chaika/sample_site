@@ -325,10 +325,13 @@ main {
     margin: 0 0 0.5rem;
   }
 }
+.footer_nav_wrap {
+  margin-bottom: 3rem;
+}
 .footer_nav {
   display: flex;
   flex-wrap: wrap;
-  margin: 0 -1rem 3rem;
+  margin: 0 -1rem;
   font-weight: 500;
 }
 .footer_nav li {
@@ -342,6 +345,22 @@ main {
   .footer_nav {
     flex-direction: column;
   }
+}
+.footer .github {
+  margin: 1em 0;
+  font-size: 0.9em;
+  letter-spacing: 0.1em;
+  color: #666;
+}
+.footer .github a {
+  display: flex;
+  align-items: center;
+  color: inherit;
+}
+.footer .github .icon_github {
+  flex: 0 0 auto;
+  margin-right: 0.3em;
+  width: 1.2em;
 }
 .footer .copy {
   text-align: center;
