@@ -1,7 +1,9 @@
 // --------------- setting -------------- //
 
 $base_color: #d35de6;
+$a_color: #5b2c7a;
 $txt_light_color: #666;
+$border_color: #ccc;
 
 //システムフォントを使う場合
 $font_base: '游ゴシック', YuGothic, 'ヒラギノ角ゴ ProN W3',
@@ -91,6 +93,7 @@ body {
 
 a {
   @include a_ease;
+  color: $a_color;
 }
 
 a:hover {
@@ -134,6 +137,67 @@ a img {
     visibility: hidden;
   }
 }
+
+/*　ここからスクロールアニメーション用　*/
+.fade_up {
+  opacity: 0;
+  transform: perspective(1000px) translate3d(0, 50px, -10px);
+  transition: all 1.5s cubic-bezier(0.19, 1, 0.22, 1);
+  &.animated {
+    opacity: 1;
+    transform: perspective(1000px) translate3d(0, 0, 0);
+  }
+}
+
+.fade_down_bg {
+  opacity: 0;
+  transform: perspective(1000px) translate3d(0, -100px, -10px);
+  transition: all 3s cubic-bezier(0.19, 1, 0.22, 1);
+  &.animated {
+    opacity: 1;
+    transform: perspective(1000px) translate3d(0, 0, 0);
+  }
+}
+
+.fade_in {
+  opacity: 0;
+  //	transform: translate3d(0,0,0) scale(0.85);
+  transition: all 1.3s 0.1s;
+  &.animated {
+    opacity: 1;
+    //		transform: translate3d(0,0,0) scale(1);
+  }
+}
+
+.fade_up,
+.fade_up_s,
+.fade_in {
+  .fade_up,
+  .fade_up_s,
+  .fade_in {
+    transition-delay: 0.1s;
+  }
+}
+
+.fade_blur {
+  opacity: 0;
+  transform: perspective(1000px) translate3d(0, 50px, -10px);
+  -ms-filter: blur(10px);
+  filter: blur(10px);
+  transition: all 1.5s cubic-bezier(0.19, 1, 0.22, 1) 0.3s;
+  &.animated {
+    opacity: 1;
+    transform: perspective(1000px) translate3d(0, 0, 0);
+    -ms-filter: blur(0);
+    filter: blur(0);
+  }
+}
+
+.first_diley {
+  transition-delay: 2.6s;
+}
+
+/*　ここまでスクロールアニメーション用　*/
 
 /*--------------- layout -------------- */
 
@@ -198,10 +262,9 @@ body {
 
 .g_nav {
   display: flex;
-  margin: 0 -2rem;
+  gap: 4rem;
   font-weight: 500;
   li {
-    margin: 0 2rem;
     a {
       display: block;
       color: $base_color;
@@ -276,7 +339,7 @@ body {
     background: transparent;
     border-top: dotted 1px $base_color;
     li {
-      margin: 0;
+      // margin: 0;
       padding: 1rem 0;
       text-align: center;
       border-bottom: dotted 1px $base_color;
@@ -413,7 +476,7 @@ main {
   }
 
   &_title {
-    margin: 0 0 2em;
+    margin: 0 0 3em;
     text-align: center;
     font-size: 1rem;
     line-height: 1.35;
@@ -441,5 +504,58 @@ main {
       font-size: 0.9em;
       color: $txt_light_color;
     }
+  }
+}
+
+.service {
+  overflow: hidden;
+  &_list {
+    display: flex;
+    margin: 0 -1.5rem;
+    @include mq() {
+      flex-direction: column;
+    }
+    &_item {
+      width: 33.33%;
+      padding: 0 1.5rem 2.5rem;
+      @include mq() {
+        width: auto;
+      }
+      a {
+        display: block;
+        color: inherit;
+      }
+      .img_wap {
+        margin: 0 0 0.75rem;
+      }
+      &_title {
+        margin-bottom: 0.5em;
+
+        text-align: center;
+        color: $txt_light_color;
+        font-weight: normal;
+        font-size: 1.25em;
+        &::after {
+          content: '';
+          display: block;
+          margin: 0.5em 0.25em 0;
+          height: 1px;
+          background: $border_color;
+        }
+      }
+      .txt_wap {
+        p {
+          text-align: justify;
+          font-size: 0.9em;
+        }
+      }
+    }
+  }
+}
+
+.company {
+  &_content {
+    height: 400px;
+    background: $border_color;
   }
 }
