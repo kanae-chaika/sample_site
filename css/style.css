@@ -25,6 +25,7 @@ body {
 
 a {
   transition: opacity 0.3s, color 0.3s, border 0.3s, background 0.3s;
+  color: #5b2c7a;
 }
 
 a:hover {
@@ -66,6 +67,66 @@ a img {
     visibility: hidden;
   }
 }
+/*　ここからスクロールアニメーション用　*/
+.fade_up {
+  opacity: 0;
+  transform: perspective(1000px) translate3d(0, 50px, -10px);
+  transition: all 1.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+.fade_up.animated {
+  opacity: 1;
+  transform: perspective(1000px) translate3d(0, 0, 0);
+}
+
+.fade_down_bg {
+  opacity: 0;
+  transform: perspective(1000px) translate3d(0, -100px, -10px);
+  transition: all 3s cubic-bezier(0.19, 1, 0.22, 1);
+}
+.fade_down_bg.animated {
+  opacity: 1;
+  transform: perspective(1000px) translate3d(0, 0, 0);
+}
+
+.fade_in {
+  opacity: 0;
+  transition: all 1.3s 0.1s;
+}
+.fade_in.animated {
+  opacity: 1;
+}
+
+.fade_up .fade_up,
+.fade_up .fade_up_s,
+.fade_up .fade_in,
+.fade_up_s .fade_up,
+.fade_up_s .fade_up_s,
+.fade_up_s .fade_in,
+.fade_in .fade_up,
+.fade_in .fade_up_s,
+.fade_in .fade_in {
+  transition-delay: 0.1s;
+}
+
+.fade_blur {
+  opacity: 0;
+  transform: perspective(1000px) translate3d(0, 50px, -10px);
+  -ms-filter: blur(10px);
+  filter: blur(10px);
+  transition: all 1.5s cubic-bezier(0.19, 1, 0.22, 1) 0.3s;
+}
+.fade_blur.animated {
+  opacity: 1;
+  transform: perspective(1000px) translate3d(0, 0, 0);
+  -ms-filter: blur(0);
+  filter: blur(0);
+}
+
+.first_diley {
+  transition-delay: 2.6s;
+}
+
+/*　ここまでスクロールアニメーション用　*/
 /*--------------- layout -------------- */
 body.nav_op {
   /*　この部分　スマホ　ハンバーガーメニューに必要　*/
@@ -128,10 +189,8 @@ body.nav_op {
 
 .g_nav {
   display: flex;
-  margin: 0 -2rem;
-}
-.g_nav li {
-  margin: 0 2rem;
+  gap: 4rem;
+  font-weight: 500;
 }
 .g_nav li a {
   display: block;
@@ -205,7 +264,6 @@ body.nav_op {
     border-top: dotted 1px #d35de6;
   }
   .g_nav li {
-    margin: 0;
     padding: 1rem 0;
     text-align: center;
     border-bottom: dotted 1px #d35de6;
@@ -271,6 +329,7 @@ main {
   display: flex;
   flex-wrap: wrap;
   margin: 0 -1rem 3rem;
+  font-weight: 500;
 }
 .footer_nav li {
   padding: 0 1rem;
@@ -346,7 +405,7 @@ main {
   background: #fbeffd;
 }
 .index_section_title {
-  margin: 0 0 2em;
+  margin: 0 0 3em;
   text-align: center;
   font-size: 1rem;
   line-height: 1.35;
@@ -376,4 +435,56 @@ main {
   font-weight: normal;
   font-size: 0.9em;
   color: #666;
+}
+
+.service {
+  overflow: hidden;
+}
+.service_list {
+  display: flex;
+  margin: 0 -1.5rem;
+}
+@media (max-width: 743px) {
+  .service_list {
+    flex-direction: column;
+  }
+}
+.service_list_item {
+  width: 33.33%;
+  padding: 0 1.5rem 2.5rem;
+}
+@media (max-width: 743px) {
+  .service_list_item {
+    width: auto;
+  }
+}
+.service_list_item a {
+  display: block;
+  color: inherit;
+}
+.service_list_item .img_wap {
+  margin: 0 0 0.75rem;
+}
+.service_list_item_title {
+  margin-bottom: 0.5em;
+  text-align: center;
+  color: #666;
+  font-weight: normal;
+  font-size: 1.25em;
+}
+.service_list_item_title::after {
+  content: "";
+  display: block;
+  margin: 0.5em 0.25em 0;
+  height: 1px;
+  background: #ccc;
+}
+.service_list_item .txt_wap p {
+  text-align: justify;
+  font-size: 0.9em;
+}
+
+.company_content {
+  height: 400px;
+  background: #ccc;
 }/*# sourceMappingURL=style.css.map */

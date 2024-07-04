@@ -120,3 +120,83 @@ $(function () {
     });
   }
 });
+
+// ---------- inview
+
+function scroll() {
+  $('.anime').on('inview', function (event, isInView) {
+    if (isInView) {
+      $(this).stop().addClass('animated');
+    }
+  });
+
+  $('.anime_both').on('inview', function (event, isInView) {
+    if (!isInView) {
+      $(this).removeClass('animated');
+    }
+  });
+
+  $('.anime_both').on('inview', function (event, isInView) {
+    if (isInView) {
+      $(this).stop().addClass('animated');
+    } else {
+      $(this).removeClass('animated');
+    }
+  });
+
+  $('.anime_delay_box').on('inview', function (event, isInView) {
+    if (isInView) {
+      $(this)
+        .find('.anime_delay')
+        .each(function (idx, elem) {
+          $(this)
+            .delay(idx * 100)
+            .queue(function () {
+              $(this).stop().addClass('animated');
+            });
+        });
+    }
+  });
+
+  $('.anime_delay_box_both').on('inview', function (event, isInView) {
+    if (isInView) {
+      $(this)
+        .find('.anime_delay')
+        .each(function (idx, elem) {
+          $(this)
+            .delay(idx * 100)
+            .queue(function () {
+              $(this).stop().addClass('animated');
+            });
+        });
+    } else {
+      $(this).find('.anime_delay').removeClass('animated');
+    }
+  });
+
+  var _width = $(window).width();
+  if (_width > 744) {
+    //iPad mini6 対応
+    $('.anime_rsp_box').on('inview', function (event, isInView) {
+      if (isInView) {
+        $(this)
+          .find('.anime_rsp')
+          .each(function (idx, elem) {
+            $(this)
+              .delay(idx * 200)
+              .queue(function () {
+                $(this).stop().addClass('animated');
+              });
+          });
+      }
+    });
+  } else {
+    $('.anime_rsp').on('inview', function (event, isInView) {
+      if (isInView) {
+        $(this).stop().addClass('animated');
+      }
+    });
+  }
+}
+
+scroll();
