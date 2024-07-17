@@ -10,6 +10,12 @@ $(window).on('load', function () {
   $('body').removeClass('nav_op');
 });
 
+// ハンバーガーが追従しない場合
+// $('.g_nav_toggle').on('click', function () {
+//   // $('body').toggleClass('nav_op');
+// });
+
+// ハンバーガーがfixedの場合
 let state = false;
 let scrollpos;
 $('.g_nav_toggle').on('click', function () {
@@ -45,9 +51,9 @@ $(function () {
     }
 
     let menu_height = 0;
-    // ヘッダーメニューの高さ除く場合
-    //        if ($('.header').length){
-    //            menu_height = $('.header').outerHeight();
+    // メニューの高さ除く場合
+    //        if ($('.header.fixed').length){
+    //            menu_height = $('.header.fixed').outerHeight();
     //        }
 
     $('body,html').animate({ scrollTop: offset.top - menu_height }, 800);
