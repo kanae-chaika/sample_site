@@ -13,8 +13,6 @@ $(window).on('load', function () {
 let state = false;
 let scrollpos;
 $('.g_nav_toggle').on('click', function () {
-  //    $('body').toggleClass('nav_op');
-  // $(this).toggleClass('open');
   if (state == false) {
     scrollpos = $(window).scrollTop();
     $('body').addClass('nav_op').css({ top: -scrollpos });
@@ -47,9 +45,9 @@ $(function () {
     }
 
     let menu_height = 0;
-    // メニューのの高さ除く場合
-    //        if ($('.header.fixed').length){
-    //            menu_height = $('.header.fixed').outerHeight();
+    // ヘッダーメニューの高さ除く場合
+    //        if ($('.header').length){
+    //            menu_height = $('.header').outerHeight();
     //        }
 
     $('body,html').animate({ scrollTop: offset.top - menu_height }, 800);
